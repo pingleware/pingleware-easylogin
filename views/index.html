@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Easy Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- HEADER --> 
+        <h2 class="w3-blue .header">Easy Login</h2>
+        <!-- MAIN -->
+        <div class="w3-container" id="main-panel">
+	    <br/><br/><br/>
+            <ul class="w3-ul w3-hoverable w3-block" id="login-buttons"></ul>
+	    <br/><br/><br/>
+        </div>
+        <!-- FOOTER -->
+        <h5 class="w3-blue .footer">&copy; 2022 by PRESSPAGE ENTERTAINMENT INC DBA PINGLEWARE. All rights reserved.</h5>
+        <!-- JAVASCRIPT -->
+	<script type="text/javascript">
+            var logins = null;
+	    window.onload = function() {
+		logins = JSON.parse(localStorage.getItem("logins"));
+		console.log(logins);
+                logins.forEach(function(login){
+                   document.getElementById("login-buttons").innerHTML += `<li><a href="${login.url}" class="w3-button w3-block w3-black">${login.name}</a></li>`;
+		});
+	    }
+        </script>
+    </body>
+</html>

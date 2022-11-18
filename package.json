@@ -1,0 +1,30 @@
+{
+  "name": "pingleware-easylogin",
+  "version": "1.0.0",
+  "description": "A simple login interface for multiple accounts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder --linux snap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pingleware/pingleware-easylogin.git"
+  },
+  "keywords": [],
+  "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://support.pingleware.work"
+  },
+  "homepage": "https://github.com/pingleware/pingleware-easylogin#readme",
+  "devDependencies": {
+    "electron": "^21.3.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "config.json": "^0.0.4",
+    "path": "^0.12.7"
+  }
+}
