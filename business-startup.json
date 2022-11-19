@@ -1,0 +1,46 @@
+{
+   "applications": [
+      {
+        "name": "InCorpME!",
+        "description": "Incorporation in any US state",
+        "url": "https://snapcraft.io/incorpme"
+      },
+      {
+        "name": "BestBooks",
+        "description": "Open source accounting application framework",
+        "url": "https://github.com/pingleware/bestbooks"
+      },
+      {
+        "name": "Administrative Assistant",
+        "description": "Desktop application providing secured administrative assistant tasks",
+        "url": "https://snapcraft.io/administrative-assistant/listing"
+      },
+      {
+        "name": "GovOpps",
+        "description": "Find government contracts for FREE!",
+        "url": "https://snapcraft.io/government-contracting-opportunities/listing"
+      },
+      {
+        "name": "SOP Manager",
+        "description": "Standard Operating Procedure (SOP) repository",
+        "url": "https://snapcraft.io/sop-manager/listing"
+      },
+      {
+        "name": "Records Management System",
+        "description": "Keep your records private and off the public cloud",
+        "url": "https://snapcraft.io/records-management-system/listing"
+      },
+      {
+        "name": "Everyday",
+        "description": Everyday Project Management isn't just for Mondays?"",
+        "url": "https://snapcraft.io/everyday/listing"
+      },
+      {
+        "name": "PINGLEWARE Support",
+        "description": "Software application support for current and future for a one time purchase of a NFT token. Resell your token when support no longer needed?",
+        "url": "https://snapcraft.io/pingleware-support/listing"
+      },
+   ],
+   "width": 1200,
+   "height": 900
+}
