@@ -3,10 +3,25 @@
   "version": "1.0.0",
   "description": "A simple login interface for multiple accounts",
   "main": "index.js",
+  "build": {
+     "appId": "work.pingleware.easylogin",
+     "productName": "EasyLogin",
+     "copyright": "Copyright 2022 ${author}",
+     "linux": {
+      	"target": "deb",
+      	"icon": "assets/login.png",
+      	"category": "Utility",
+      	"synopsis": "A simple login interface for multiple accounts"
+      },
+      "files": [],
+      "extraFiles": []
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-builder --linux snap"
+    "startup": "electron index.js -j=./business-startup.json",
+    "dist": "electron-builder",
+    "snap": "electron-builder --linux snap"
   },
   "repository": {
     "type": "git",
@@ -25,6 +40,7 @@
   },
   "dependencies": {
     "config.json": "^0.0.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "yargs": "^17.6.2"
   }
 }

@@ -1,5 +1,5 @@
 {
-   "applications": [
+   "logins": [
       {
         "name": "InCorpME!",
         "description": "Incorporation in any US state",
@@ -32,14 +32,14 @@
       },
       {
         "name": "Everyday",
-        "description": Everyday Project Management isn't just for Mondays?"",
+        "description": "Everyday Project Management isn't just for Mondays?",
         "url": "https://snapcraft.io/everyday/listing"
       },
       {
         "name": "PINGLEWARE Support",
         "description": "Software application support for current and future for a one time purchase of a NFT token. Resell your token when support no longer needed?",
         "url": "https://snapcraft.io/pingleware-support/listing"
-      },
+      }
    ],
    "width": 1200,
    "height": 900

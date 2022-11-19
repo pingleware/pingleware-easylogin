@@ -1,6 +1,22 @@
 "use strict"
 
-const config = require('config.json')('./easylogin.json');
+const yargs = require('yargs');
+
+const argv = yargs
+    .option('config',{
+        alias: 'j',
+        description: 'settings JSON file name',
+        type: 'string',
+        required: true
+    })
+    .help()
+    .alias('help', '?').argv;
+
+
+const fs = require('fs');
+fs.copyFileSync(argv.config,'./settings.json');
+
+const config = require('config.json')('./settings.json');
 const {app, BrowserWindow, ipcMain} = require("electron");
 const path = require("path");
 

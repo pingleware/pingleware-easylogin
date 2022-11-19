@@ -1,4 +1,4 @@
-const config = require('./easylogin.json');
+const config = require('./settings.json');
 
 console.log(config.logins);
 
