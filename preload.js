@@ -27,8 +27,11 @@ contextBridge.exposeInMainWorld(
   }
 );
 
-const config = require('./settings.json');
+const config = require('config.json')('./settings.json');
 
 console.log(config.logins);
 
 localStorage.setItem("logins",JSON.stringify(config.logins));
+
+const package = require('./package.json');
+localStorage.setItem('version',package.version);

@@ -16,7 +16,7 @@
 	    <br/><br/><br/>
         </div>
         <!-- FOOTER -->
-        <h5 class="w3-blue .footer">&copy; 2022 by PRESSPAGE ENTERTAINMENT INC DBA PINGLEWARE. All rights reserved.</h5>
+        <h5 class="w3-blue .footer">&copy; <span id="year">2022</span> by PRESSPAGE ENTERTAINMENT INC DBA PINGLEWARE. All rights reserved.&nbsp;<span class="w3-tiny" id="version"></span></h5>
         <!-- JAVASCRIPT -->
 	    <script type="text/javascript">
             var logins = null;
@@ -27,6 +27,14 @@
                 logins.forEach(function(login){
                    document.getElementById("login-buttons").innerHTML += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ${login.userid}, Password: ${login.password}</a></li>`;
 		        });
+
+                var version = localStorage.getItem("version");
+                document.getElementById("version").innerHTML = "Version " + version;
+
+                var year = new Date().getFullYear();
+                if (year > 2022) {
+                    document.getElementById("year").innerHTML = '2022-' + year;
+                }
 	        }
             
             window.api.receive("error",function(channel, event, error){

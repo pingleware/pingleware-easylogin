@@ -1,6 +1,6 @@
 {
   "name": "easylogin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple login interface for multiple accounts",
   "main": "index.js",
   "build": {
@@ -18,8 +18,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "startup": "electron index.js -j=./business-startup.json",
+    "start": "electron . -j=./easylogin.json",
+    "startup": "electron index.js -j=./easylogin.json",
+    "debug": "electron . -j=easylogin.json",
     "dist": "electron-builder",
     "snap": "electron-builder --linux snap"
   },
