@@ -19,3 +19,5 @@ A JSON managed list of important websites and eliminate the browser link clutter
 [![easylogin](https://snapcraft.io/easylogin/badge.svg)](https://snapcraft.io/easylogin)
 [![easylogin](https://snapcraft.io/easylogin/trending.svg?name=0)](https://snapcraft.io/easylogin)
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/easylogin)
+
