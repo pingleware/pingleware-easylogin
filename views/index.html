@@ -8,25 +8,61 @@
     </head>
     <body>
         <!-- HEADER --> 
-        <h2 class="w3-blue .header">Easy Login</h2>
+        <h2 class="w3-blue header">Easy Login</h2>
         <!-- MAIN -->
+	    <br/><br/><br/>
         <div class="w3-container" id="main-panel">
-	    <br/><br/><br/>
             <ul class="w3-ul w3-hoverable w3-block" id="login-buttons"></ul>
-	    <br/><br/><br/>
         </div>
+	    <br/><br/><br/>
         <!-- FOOTER -->
-        <h5 class="w3-blue .footer">&copy; <span id="year">2022</span> by PRESSPAGE ENTERTAINMENT INC DBA PINGLEWARE. All rights reserved.&nbsp;<span class="w3-tiny" id="version"></span></h5>
+        <h5 class="w3-blue footer">&copy; <span id="year">2022</span> by PRESSPAGE ENTERTAINMENT INC DBA PINGLEWARE. All rights reserved.&nbsp;<span class="w3-tiny" id="version"></span></h5>
         <!-- JAVASCRIPT -->
 	    <script type="text/javascript">
             var logins = null;
+            var privacy;
+            var groups = [];
 	        
             window.onload = function() {
+                privacy = localStorage.getItem("privacy");
 		        logins = JSON.parse(localStorage.getItem("logins"));
 		        console.log(logins);
                 logins.forEach(function(login){
-                   document.getElementById("login-buttons").innerHTML += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ${login.userid}, Password: ${login.password}</a></li>`;
+                    if (typeof login.group === "undefined") {
+                        login.group = "Not Defined";
+                    }
+                    if (typeof groups[login.group] === "undefined") {
+                        groups[login.group] = [];
+                    }
+                    groups[login.group].push(login);
+
+                    //if (login.privacy != "on") {
+                    //    document.getElementById("login-buttons").innerHTML += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ******, Password: ******</a></li>`;
+                    //} else {
+                    //    document.getElementById("login-buttons").innerHTML += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ${login.userid}, Password: ${login.password}</a></li>`;
+                    //}
 		        });
+                console.log(groups);
+                var keys = Object.keys(groups);
+                console.log(keys);
+                keys.forEach(function(key){
+                    var group_logins = groups[key];
+                    var lists = `<ul class="w3-ul w3-hoverable w3-striped">`;
+                    group_logins.forEach(function(login){
+                        if (privacy !== "on") {
+                            lists += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ${login.userid}, Password: ${login.password}</a></li>`;
+                        } else {
+                            lists += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ******, Password: ******</a></li>`;
+                        }
+                    })
+                    lists += `</ul>`;
+                    document.getElementById("main-panel").innerHTML += `
+                    <fieldset>
+                        <legend>${key}</legend>
+                        ${lists}
+                    </fieldset>
+                    `;
+                })
 
                 var version = localStorage.getItem("version");
                 document.getElementById("version").innerHTML = "Version " + version;

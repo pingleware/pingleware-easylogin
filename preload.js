@@ -32,6 +32,11 @@ const config = require('config.json')('./settings.json');
 console.log(config.logins);
 
 localStorage.setItem("logins",JSON.stringify(config.logins));
+var privacy = "off";
+if (typeof config.privacy !== "undefined") {
+  privacy = config.privacy;
+}
+localStorage.setItem("privacy",privacy);
 
 const package = require('./package.json');
 localStorage.setItem('version',package.version);
