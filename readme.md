@@ -14,7 +14,8 @@ A JSON managed list of important websites and eliminate the browser link clutter
 	      }
 	   ],
 	   "width": 1200,
-	   "height": 900
+	   "height": 900,
+	   "privacy": "on"
 	}
 
 
