@@ -18,15 +18,74 @@
         <!-- FOOTER -->
         <h5 class="w3-blue .footer">&copy; 2022 by PRESSPAGE ENTERTAINMENT INC DBA PINGLEWARE. All rights reserved.</h5>
         <!-- JAVASCRIPT -->
-	<script type="text/javascript">
+	    <script type="text/javascript">
             var logins = null;
-	    window.onload = function() {
-		logins = JSON.parse(localStorage.getItem("logins"));
-		console.log(logins);
+	        
+            window.onload = function() {
+		        logins = JSON.parse(localStorage.getItem("logins"));
+		        console.log(logins);
                 logins.forEach(function(login){
-                   document.getElementById("login-buttons").innerHTML += `<li><a href="${login.url}" class="w3-button w3-block w3-black">${login.name}</a></li>`;
-		});
-	    }
+                   document.getElementById("login-buttons").innerHTML += `<li><a href="#" onclick="openBrowser('${login.url}');" class="w3-button w3-block w3-black">${login.name}<br/>User ID: ${login.userid}, Password: ${login.password}</a></li>`;
+		        });
+	        }
+            
+            window.api.receive("error",function(channel, event, error){
+                showAlert("error","Error",error);
+            });
+
+            function SendIPC(channel,params,callback) {
+                window.api.receive(channel, function(channel, event, data){
+                    callback(channel, event, data);
+                });
+                window.api.send(channel, params);
+            }
+            function id(element_id) {
+	            return document.getElementById(element_id);
+            }
+            function listener(element_id,action,callback) {
+	            if (id(element_id)) {
+	                id(element_id).addEventListener(action,callback);
+	            } else {
+	                console.log("Element does not exist in the HTML: " + element_id);
+	            }
+            }
+            function show(element_id) {
+	            id(element_id).style.display = "block";
+            }
+            function hide(element_id) {
+	            id(element_id).style.display = "none";
+            }
+            function showParent(element_id) {
+	            id(element_id).parentNode.style.display = "block";
+            }
+            function hideParent(element_id) {
+	            id(element_id).parentNode.style.display = "none";
+                }
+            function showAlert(page, title, message, callback=null) {
+	            var _message = message;
+	            if (message.error.message) {
+	                _message = message.error.message;
+	            }
+	            id(page + "-dialog-title").innerHTML = title;
+	            id(page + "-dialog-message").innerHTML = _message;
+	            id(page + "-dialog").style.display = "block";
+  
+	            if (callback) {
+	                listener(page + "-dialog-ok","click",function(e){
+		                hide(page + "-dialog");
+		                callback();
+	                });
+	            } else {
+	                listener(page + "-dialog-ok","click",function(e){
+		                hide(page + "-dialog");
+	                });
+	            }
+            }
+            function openBrowser(url) {
+                SendIPC("open_browser",url,function(channel,event,data){
+
+                });                
+            }
         </script>
     </body>
 </html>

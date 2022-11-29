@@ -57,3 +57,12 @@ app.on("window-all-closed", function () {
 app.on("activate", function () {
   if (mainWindow === null) createWindow();
 });
+
+/**
+ * Interprocess Communications (IPC) between HTML-UI and Node
+ */
+ ipcMain.on('open_browser', function(evt, url){
+  var start = (process.platform == 'darwin'? 'open': process.platform == 'win32'? 'start': 'xdg-open');
+  require('child_process').exec(start + ' ' + url);
+  mainWindow.webContents.send('open_browser','success');
+});

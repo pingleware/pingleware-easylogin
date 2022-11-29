@@ -1,5 +1,5 @@
 {
-  "name": "pingleware-easylogin",
+  "name": "easylogin",
   "version": "1.0.0",
   "description": "A simple login interface for multiple accounts",
   "main": "index.js",
